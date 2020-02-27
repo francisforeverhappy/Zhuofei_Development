@@ -23,7 +23,7 @@ void readFile(const char* path){
   int count = 0;
   auto start = high_resolution_clock::now();
   // Allocate a buffer for the file content
-  char* data = (char*) mmap(NULL, st.st_size, PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
+  char* data = (char*) mmap(NULL, st.st_size, PROT_READ, MAP_PRIVATE, fd, 0);
   if(data == MAP_FAILED){
     std::cout << "mmap " << path << " failed!" << std::endl;
     return;
