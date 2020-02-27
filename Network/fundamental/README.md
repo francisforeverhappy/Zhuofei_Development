@@ -19,7 +19,8 @@ Router is actually a small computer that can be programmed to handle and route t
 Consumer-grade routers perform (at minimum) two additional and important tasks: DHCP and NAT.  
 
 DHCP — Dynamic Host Configuration Protocol — is how dynamic IP addresses are assigned. When it first connects to the network, a device asks for an IP address to be assigned to it, and a DHCP server responds with an IP address assignment. A router connected to your ISP-provided internet connection will ask your ISP’s server for an IP address; this will be your IP address on the internet. Your local computers, on the other hand, will ask the router for an IP address, and these addresses are local to your network.  
-![Router-DHCP](./router-dhcp.png)
+![Router-DHCP](./router-dhcp.png)  
+
 NAT — Network Address Translation- – is the way the router translates the IP addresses of packets that cross the internet/local network boundary. When computer “A” sends a packet, the IP address that it’s “from” is that of computer “A” — 192.168.0.1, in the figure above. When the router passes that on to the internet, it replaces the local IP address with the internet IP address assigned by the ISP — 1.2.3.4, in the example. It also keeps track, so if there’s a response the router knows to do the translation in reverse, replacing the internet IP address with the local IP address for machine “A”, and then sending that response packet on to machine “A”.  
 
 A side effect of NAT is that machines on the internet cannot initiate communications to local machines; they can only respond to communications initiated by them. This means that the router also acts as an effective firewall.  
