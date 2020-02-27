@@ -1,3 +1,20 @@
+
+**Table of Contents**
+
+- [COMPUTER NETWORK](#computer-network)
+  - [Hub, Switch & Router](#hub-switch--router)
+    - [Hub](#hub)
+    - [Switch](#switch)
+    - [Router](#router)
+    - [Difference](#difference)
+      - [Hub Vs. Switch](#hub-vs-switch)
+      - [Switch Vs. Router](#switch-vs-router)
+      - [Hub Vs. Router](#hub-vs-router)
+    - [Summary](#summary)
+    - [Source](#source)
+  - [Network interface controller (NIC)](#network-interface-controller-nic)
+    - [Purpose](#purpose)
+
 # COMPUTER NETWORK
 
 ## Hub, Switch & Router
@@ -25,9 +42,6 @@ NAT — Network Address Translation- – is the way the router translates the IP
 
 A side effect of NAT is that machines on the internet cannot initiate communications to local machines; they can only respond to communications initiated by them. This means that the router also acts as an effective firewall.  
 
-
-
-
 ### Difference
 #### Hub Vs. Switch
 A hub works on the physical layer (Layer 1) of OSI model while Switch works on the data link layer (Layer 2). Switch is more efficient than the hub. A switch can join multiple computers within one LAN, and a hub just connects multiple Ethernet devices together as a single segment. Switch is smarter than hub to determine the target of the forwarding data. Since switch has a higher performance, its cost will also become more expensive.  
@@ -38,9 +52,20 @@ In the OSI model, router is working on a higher level of network layer (Layer 3)
 #### Hub Vs. Router
 As mentioned above, a hub only contains the basic function of a switch. Hence, differences between hub and router are even bigger. For instance, hub is a passive device without software while router is a networking device, and data transmission form in hub is in electrical signal or bits while in router it is in form of packet.  
 
-## Summary
+### Summary
 Hubs are “dumb” devices that pass on anything received on one connection to all other connections.  
 Switches are semi-intelligent devices that learn which devices are on which connection.  
 Routers are essentially small computers that perform a variety of intelligent tasks.  
 
-## Source: [Difference Between a Hub, a Switch, and a Router](https://askleo.com/whats_the_difference_between_a_hub_a_switch_and_a_router/)
+### Source
+[Difference Between a Hub, a Switch, and a Router](https://askleo.com/whats_the_difference_between_a_hub_a_switch_and_a_router/)  
+
+## Network interface controller (NIC)
+A network interface card (NIC) is a hardware component without which a computer cannot be connected over a network. It is a circuit board installed in a computer that provides a dedicated network connection to the computer. It is also called network interface controller, network adapter or LAN adapter.  
+
+### Purpose
+NIC allows both wired and wireless communications.  
+
+NIC allows communications between computers connected via local area network (LAN) as well as communications over large-scale network through Internet Protocol (IP).  
+
+NIC is both a physical layer and a data link layer device, i.e. it provides the necessary hardware circuitry so that the physical layer processes and some data link layer processes can run on it.  
