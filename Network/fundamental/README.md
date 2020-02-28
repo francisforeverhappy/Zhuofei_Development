@@ -2,6 +2,10 @@
 **Table of Contents**
 
 - [COMPUTER NETWORK](#computer-network)
+  - [TCP](#tcp)
+    - [TCP vs. UDP](#tcp-vs-udp)
+    - [Socket](#socket)
+  - [Star Topology](#star-topology)
   - [Hub, Switch & Router](#hub-switch--router)
     - [Hub](#hub)
     - [Switch](#switch)
@@ -14,8 +18,85 @@
     - [Source](#source)
   - [Network interface controller (NIC)](#network-interface-controller-nic)
     - [Purpose](#purpose)
+    - [Function](#function)
 
 # COMPUTER NETWORK
+
+## TCP
+Transmission Control Protocol  
+
+### TCP vs. UDP
+| Diff | TCP | UDP |
+| :-: | :-: | :-: |
+| Conection | Connection-oriented communication | Connectionless communication |
+| Advantage | more reliable, ordered | lightweight|
+| Example | www, email, ssh | Domain Name Service (DNS) |
+
+### Socket
+
+![TCP-Socket](./socket-tcp.png)  
+
+![UDP-Socket](./socket-udp.png)  
+
+1. **int socket ( int family, int type, int protocol )**
+> Create an endpoint for communication
+  > * family: identifies the family by address or protocol
+  > > AF_INET is for IPv4 (4 bytes for an IP address)  
+  > > AF_INET6 is for IPv6 (16 bytes for an IP address)  
+  > * type: identifies the semantics of communication
+  > > SOCK_STREAM: Sequence of bytes, does not preserve message boundary  
+  > > SOCK_DGRAM: In blocks of bytes called datagram  
+  > > SOCK_RAW : Access to internal network interface (superuser)  
+  > > SOCK_PACKET: To get Ethernet packets (for Linux).   
+  > * protocol: identifies protocol (0 - default)  
+  > > IPPROTO_TCP: with SOCK_STREAM and AF_INET (or AF_INET6)   
+  > > IPPROTO_UDP: with SOCK_DGRAM and AF_INET (or AF_INET6)  
+  > > ETH_P_ALL: Get Ethernet packets.  
+  
+  Hint: In the code, htons() is used to convert to TCP/IP network byte order (big-endian), i.e. sockfd = socket(AF_INET, SOCK_PACKET, htons(ETH_P_ALL));
+
+
+2. __int bind ( int sd, struct sockaddr *name, int namelen )__  
+> Assign an address to the socket.  
+  > * sd: the socket descriptor returned by the socket call.  
+  > * name: a pointer to an address structure.  
+  > * namelen: the size of address structure.  
+
+```
+struct sockaddr {
+  sa_family_t sa_family; /* address family */
+  char sa_data[14]; /* up to 14 bytes of direct address */
+  /* sa_familiy = AF_INET;sa_data = name of the interface (e.g., eth0, eth1)*/
+};
+```
+
+
+3. __ioctl(int fd, int request, /*void *arg */ )__  
+Has traditionally been the system interface. Used by network programming to  
+  - obtain interface information  
+  - set the interface configuration  
+  - access the routing table  
+  - access the ARP cache  
+
+> arg: address of an ifr record  
+> fd: the socket descriptor returned by the socket call.  
+> request: type of the request  
+> > SIOCGIFHWADDR: Get the hardware address in the ifr_hwaddr member  
+> > SIOCGIFFLAGS: Get the interface flags in the ifr_flags member  
+> > SIOCSIFFLAGS: Set the interface flags from the ifr_flags member  
+
+
+4. __recvfrom(int sockfd, void *buf, size_t len, … )__  
+Get the next available packet and store the data into buf.  
+
+
+
+## Star Topology
+
+![star-Topology](./star-Topology.jpg)  
+
+Star Topology is Widely used in LAN nowadays. It is connected to either a hub or a switch.  
+
 
 ## Hub, Switch & Router
 Hubs, switches and routers are the bridge to link computers, network devices and other networks. Each has two or more connectors called ports, into which you plug the cables to make the connection.  
@@ -69,3 +150,12 @@ NIC allows both wired and wireless communications.
 NIC allows communications between computers connected via local area network (LAN) as well as communications over large-scale network through Internet Protocol (IP).  
 
 NIC is both a physical layer and a data link layer device, i.e. it provides the necessary hardware circuitry so that the physical layer processes and some data link layer processes can run on it.  
+
+### Function
+Assigned with a unique Media Access Control (MAC) address hardcoded in ROM. (Most routers or operating system nowadays allow to change the MAC address on the software level).  
+
+Contain hardware that allows to recognize its MAC address, Broadcast address and Multicast addresses (direct frames to groups of stations).  
+
+Can be set to run in promiscuous mode where it listens to all transmissions. In the promiscuous mode, the NIC will accept the received frame that is not destined to it. (Can be used by hackers to intercept unencrypted passwords and other information; Cane be used by system administrators to troubleshoot the network.)  
+
+
