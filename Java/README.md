@@ -25,4 +25,4 @@ The Java platform provides an enormous class library (a set of packages) suitabl
 
 ## Source
 
-1. [ORACKLE Java Tutorial](https://docs.oracle.com/javase/tutorial/java/index.html)  
+1. [ORACLE Java Tutorial](https://docs.oracle.com/javase/tutorial/java/index.html)  
