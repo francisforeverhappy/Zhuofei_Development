@@ -40,6 +40,36 @@ Requires physical checking: Ethernet connections, or Check the configuration of 
 4. ICMP Ping Latency Test  
    The administrator pings the suspected host and takes the round trip time. The administrator then creates a lot of fake TCP connections. The sniffer may be processing those packets and the latency will increase. The administrator then pings the suspected host again to see if the round trip time is increased.  
 
+### Sniffer Countermeasures
+
+1. prevent hackers from accessing your systems.  
+2. Use switches instead of hubs.  
+3. Not to pass usernames and passwords over the network in form of clear text.
+   - Use SSH instead of telnet.
+   - Use HTTPS instead of HTTP
+   - Use SCP and SFTP for file transfer.
+
+### Advanced Sniffing Techniques
+
+#### ARP Flooding
+
+A switch must keep a table of all MAC addresses appear on each port. If a large number of addresses appear on a single port, some switches begin to send all traffic to that port.
+
+#### ARP Spoofing
+
+It is possible to overwrite the ARP cache on many operating systems. It is also possible to associate the hacker’s MAC address with the default gateway’s IP address, which cause all outgoing traffic from the target host to be transmitted to the hacker’s host.
+
+[More Details](https://en.wikipedia.org/wiki/ARP_spoofing)
+
+#### ICMP Redirection
+
+Change the routing table of the target host. The hacker declares himself as the default gateway. All outbound traffic from the target host will pass through the hacker’s host. The hacker’s host sniffs the traffic and then forwards it to the real gateway so that the target host can still communicate with outside. However, the hacker’s host cannot receive return traffic from the real gateway.
+
+
+
+
+
+
 
 
 
