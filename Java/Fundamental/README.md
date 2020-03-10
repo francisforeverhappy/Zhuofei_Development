@@ -5,6 +5,12 @@
       - [Naming](#naming)
       - [Literals](#literals)
       - [Array](#array)
+    - [Operators](#operators)
+      - [Precedence order](#precedence-order)
+      - [Increment and Decrement operator](#increment-and-decrement-operator)
+      - [The Type Comparison Operator instanceof](#the-type-comparison-operator-instanceof)
+      - [Bitwise and Bit Shift Operators](#bitwise-and-bit-shift-operators)
+      - [Switch Statement](#switch-statement)
   - [Source](#source)
 
 # Java (JDK 8)
@@ -125,6 +131,84 @@ Useful Methods in **java.util.Arrays** class:
 2. Comparing two arrays to determine if they are equal or not (the **equals** method).
 3. Filling an array to place a specific value at each index (the **fill** method).
 4. Sorting an array into ascending order. This can be done either sequentially, using the sort method, or concurrently, using the **parallelSort** method introduced in Java SE 8. Parallel sorting of large arrays on multiprocessor systems is faster than sequential array sorting.
+
+### Operators
+
+#### Precedence order
+
+All binary operators except for the assignment operators are evaluated from left to right; assignment operators are evaluated right to left.  
+
+![Operator Precedence order](./Operator_Precedence.png)
+
+#### 	Increment and Decrement operator
+
+The only difference is that the prefix version (++result) evaluates to the incremented value, whereas the postfix version (result++) evaluates to the original value.  
+```
+int i = 0;
+// print 1
+System.out.println(++i);
+i = 0;
+// print 0
+System.out.println(i++);
+```
+
+#### The Type Comparison Operator instanceof
+
+The following program, InstanceofDemo, defines a parent class (named Parent), a simple interface (named MyInterface), and a child class (named Child) that inherits from the parent and implements the interface.  
+```
+class InstanceofDemo {
+ public static void main(String[] args) {
+  Parent obj1 = new Parent();
+  Parent obj2 = new Child();
+
+  System.out.println("obj1 instanceof Parent: "
+      + (obj1 instanceof Parent));
+  System.out.println("obj1 instanceof Child: "
+      + (obj1 instanceof Child));
+  System.out.println("obj1 instanceof MyInterface: "
+      + (obj1 instanceof MyInterface));
+  System.out.println("obj2 instanceof Parent: "
+      + (obj2 instanceof Parent));
+  System.out.println("obj2 instanceof Child: "
+      + (obj2 instanceof Child));
+  System.out.println("obj2 instanceof MyInterface: "
+      + (obj2 instanceof MyInterface));
+ }
+}
+class Parent {}
+class Child extends Parent implements MyInterface {}
+interface MyInterface {}
+```
+Output:
+```
+obj1 instanceof Parent: true
+obj1 instanceof Child: false
+obj1 instanceof MyInterface: false
+obj2 instanceof Parent: true
+obj2 instanceof Child: true
+obj2 instanceof MyInterface: true
+```
+When using the instanceof operator, keep in mind that null is not an instance of anything.
+
+#### Bitwise and Bit Shift Operators
+
+The **unary** bitwise complement operator "~" inverts a bit pattern; it can be applied to any of the integral types, making every "0" a "1" and every "1" a "0". For example, a byte contains 8 bits; applying this operator to a value whose bit pattern is "00000000" would change its pattern to "11111111".
+
+The signed left shift operator "<<" shifts a bit pattern to the left, and the signed right shift operator ">>" shifts a bit pattern to the right. The bit pattern is given by the left-hand operand, and the number of positions to shift by the right-hand operand. The unsigned right shift operator ">>>" shifts a zero into the leftmost position, while the leftmost position after ">>" depends on sign extension.
+
+[Example](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
+
+The bitwise & operator performs a bitwise AND operation.
+
+The bitwise ^ operator performs a bitwise exclusive OR operation.
+
+The bitwise | operator performs a bitwise inclusive OR operation.
+
+#### Switch Statement
+
+A switch works with the **byte, short, char, and int** primitive data types. It also works with **enumerated types, the String class**, and a few special classes that wrap certain primitive types: **Character, Byte, Short, and Integer.**
+
+
 
 ## Source
 
