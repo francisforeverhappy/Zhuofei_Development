@@ -22,6 +22,7 @@ Step by step to build Zhuofei Engineer
 ### Java
 | Updated Time | Content | Comments | Reviewed |
 | :-: | :-: | :-: | :-: |
+| 2020/4/9 | Annotations | New to me, recommend reading again when applying it | 0 |
 | 2020/3/24 | Class and Object | So many new things to me, including initializing Fields, Nested Classes (especially lambda expression) | 0 |
 | 2020/3/10 | Java Language Basics notes | So many TODOs, work harder! | 0 |
 | 2020/3/4 | Java Variable notes | Hope I can finish Java Tutorials this week | 0 |
