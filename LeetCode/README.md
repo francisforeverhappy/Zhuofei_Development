@@ -4,7 +4,7 @@
 # LeetCode
 
 ## String and Math
-- 8. String to Integer (atoi)  
+- Problem 8 String to Integer (atoi)  
 Clear writing! Pay attention to the way to handle invalid input(++--1).
 ```
 public static int myAtoi(String str) {
@@ -25,7 +25,7 @@ public static int myAtoi(String str) {
 ```
 
 ## Bitwise operation
-- 29. Divide Two Integers  
+- Problem 29 Divide Two Integers  
 [Bitwise operation Source](https://blog.csdn.net/xiaochunyong/article/details/7748713)
 ```
 public class Solution {
