@@ -1,6 +1,7 @@
 - [LeetCode](#leetcode)
   - [String and Math](#string-and-math)
   - [Bitwise operation](#bitwise-operation)
+  - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
 # LeetCode
 
 ## String and Math
@@ -49,3 +50,7 @@ public class Solution {
     }
 }
 ```
+
+## Binary Tree Inorder Traversal
+- 94. Binary Tree Inorder Traversal  
+  Note: compare my answer with solution, I should formulate my thought firstly.
