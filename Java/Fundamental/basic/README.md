@@ -709,6 +709,8 @@ Use it if you need to declare fields or additional methods.
 
 **Lambda expression:**
 
+[Good article for java lambda](https://objcoding.com/2019/03/04/lambda/)
+
 Use it if you are encapsulating a single unit of behavior that you want to pass to other code. For example, you would use a lambda expression if you want a certain action performed on each element of a collection, when a process is completed, or when a process encounters an error.
 
 Use it if you need a simple instance of a functional interface and none of the preceding criteria apply (for example, you do not need a constructor, a named type, fields, or additional methods).
